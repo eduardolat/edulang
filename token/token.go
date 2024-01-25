@@ -9,6 +9,16 @@ type Token struct {
 	Literal string
 }
 
+// New returns a new Token.
+func New(tokenType TokenType, literal string) Token {
+	return Token{Type: tokenType, Literal: literal}
+}
+
+// NewFromByte returns a new Token from a byte literal.
+func NewFromByte(tokenType TokenType, literal byte) Token {
+	return Token{Type: tokenType, Literal: string(literal)}
+}
+
 const (
 	// Special tokens
 	ILLEGAL = "ILLEGAL" // A token that we don't know about
